@@ -3,12 +3,17 @@ use rand::Rng;
 use colored::Colorize;
 use std::cmp::Ordering;
 
+// I've taken the liberty to divert from the book here so it
+// won't match perfectly. - SMG
 fn main() {
     println!("Guess the secret number!");
 
     let secret: i32 = rand::thread_rng().gen_range(1..=100);
+    let mut attempts = 0;
 
     loop {
+        attempts += 1;
+
         let mut guess = String::new();
         let message: String;
 
@@ -36,7 +41,14 @@ fn main() {
             Ordering::Greater => message = "Try smaller.".yellow().to_string(),
             Ordering::Less => message = "Try bigger.".yellow().to_string(),
             Ordering::Equal => {
-                message = "You guessed correctly!".green().to_string();
+                if attempts > 1 {
+                    message = format!("You guessed correctly after {attempts} attempts!");
+                }
+                else {
+                    message = format!("You guessed correctly on your first try!");
+                }
+                
+                let message = message.green().to_string();
                 println!("{message}");
                 exit(0)
             },
