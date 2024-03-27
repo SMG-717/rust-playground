@@ -6,7 +6,7 @@ fn main() {
     println!("x = {x}");
 
     // Constants
-    const SECONDS_IN_A_DAY: u32 = 24 * 60 * 60
+    const SECONDS_IN_A_DAY: u32 = 24 * 60 * 60;
 
     // Shadowing
     let x = 5;
@@ -20,30 +20,33 @@ fn main() {
     println!("outer x = {x}");
 
     // Floating Points
-    let pi: f32 = 3.14;
-    let e: f64 = 2.7182818;
+    let _pi: f32 = 3.14;  
+    let _e: f64 = 2.7182818;
+    
+    // Note: A variable name that starts with an underscore 
+    // tells rust that we don't intend to use it later
 
     // Numeric Operations
-    let sum = 1 + e;
-    let diff = e - 2;
-    let prod = e * pi;
-    let div = pi / e;
-    let rem = pi % 3;
+    let _sum = 1 + 2;
+    let _diff = 16 - 3;
+    let _prod = 4 * 5;
+    let _div = 7 / 8;
+    let _rem = 10 % 9;
 
     // Booleans
-    let active: bool = true;
+    let _active: bool = true;
 
     // Characters
-    let letter: char = 'S';
-    let funny: char = '😂';
+    let _letter: char = 'S';
+    let _funny: char = '😂';
 
     // Tuples
-    let tup: (i32, f64, char) = (1, 2.5, 'Y');
-    let (a, b, c) = tup; // Destructuring!
-    let middle = tup.1;
+    let tup = (1, 2.5, 'Y');
+    let (_a, _b, _c) = tup; // Destructuring!
+    let _middle = tup.1;
 
     // Arrays
     let a: [i32; 5] = [1, 4, 9, 16, 25];
-    let sevens = [7; 5]; // Short hand for [7, 7, 7, 7, 7]
-    let head = a[0];
+    let _sevens = [7; 5]; // Short hand for [7, 7, 7, 7, 7]
+    let _head = a[0];
 }
